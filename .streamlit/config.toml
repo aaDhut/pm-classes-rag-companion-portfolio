@@ -1,0 +1,53 @@
+[server]
+headless = true
+port = 8501
+# Keep the browser's live connection busy so networks and proxies don't cut it when idle
+# (logs showed connections dying at exactly 60 s), and keep a dropped session around for
+# 10 minutes so reconnecting brings back the same chat instead of a blank page.
+websocketPingInterval = 20
+disconnectedSessionTTL = 600
+# Serves ./static/ at /app/static/ (the monkey avatar pictures).
+enableStaticServing = true
+
+[browser]
+gatherUsageStats = false
+
+# Colors: colorhunt.co/palette/1b211a6281418bae66ebd5ab
+#   #1B211A forest black · #628141 moss · #8BAE66 sage · #EBD5AB sand
+# Light and dark are both set, so the sidebar's dark-mode toggle switches between them.
+# Light: light-sand page, sage sidebar, forest-black accent.
+[theme.light]
+primaryColor = "#1B211A"
+backgroundColor = "#F8F0E0"
+secondaryBackgroundColor = "#EBD5AB"
+textColor = "#1B211A"
+linkColor = "#1B211A"
+borderColor = "#D2BE94"
+codeBackgroundColor = "#EFE2C4"
+greenColor = "#628141"
+
+[theme.light.sidebar]
+backgroundColor = "#8BAE66"
+secondaryBackgroundColor = "#A8C48A"
+borderColor = "#7A9C57"
+
+# Dark ("Sand + Sage"): the same three layers as light mode. Forest-black page, a sage
+# sidebar clearly lighter than the page, and sand for your side of the chat (question bubbles
+# in styles.py, the question box here). The page accent is a light sage; the sidebar keeps
+# light mode's forest-black accent, with deep-forest dropdowns so they stand out on the green.
+[theme.dark]
+primaryColor = "#A8C98A"
+backgroundColor = "#161B15"
+secondaryBackgroundColor = "#332E20"
+textColor = "#EFE7D4"
+linkColor = "#BFD9A2"
+borderColor = "#4A5640"
+codeBackgroundColor = "#20261E"
+greenColor = "#9CC26F"
+
+[theme.dark.sidebar]
+primaryColor = "#1B211A"
+backgroundColor = "#4A6A3C"
+secondaryBackgroundColor = "#1F2A1C"
+textColor = "#F3ECDA"
+borderColor = "#86A86A"

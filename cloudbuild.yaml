@@ -1,0 +1,18 @@
+# Runs on every push to main (Cloud Build trigger): build the image, push it, deploy to Cloud Run.
+substitutions:
+  _REGION: us-central1
+  _SERVICE: pm-classes-rag
+  _IMAGE: us-central1-docker.pkg.dev/${PROJECT_ID}/pm-classes-rag/app
+
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "${_IMAGE}:${SHORT_SHA}", "-t", "${_IMAGE}:latest", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push", "--all-tags", "${_IMAGE}"]
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: gcloud
+    args: ["run", "deploy", "${_SERVICE}", "--image=${_IMAGE}:${SHORT_SHA}", "--region=${_REGION}"]
+
+images: ["${_IMAGE}:${SHORT_SHA}", "${_IMAGE}:latest"]
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -1,0 +1,15 @@
+.env
+secrets/
+data/
+.venv/
+__pycache__/
+*.log
+.DS_Store
+.streamlit/secrets.toml
+voice_samples/
+.vscode/
+# eval outputs and private test cases
+eval/*.json
+!eval/cases.example.json
+eval/run*.md
+eval/cost*.md

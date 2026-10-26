@@ -1,0 +1,28 @@
+[
+ {
+  "id": "mvp-vs-prototype",
+  "type": "fact",
+  "turns": ["What is the difference between an MVP and a prototype?"],
+  "must": [
+   "A prototype validates the idea; an MVP tests product-market fit",
+   "An MVP gives a complete end-to-end experience; a prototype is partial"
+  ],
+  "evidence": [
+   {"file": "MVP notes", "page": 2},
+   {"class": 6, "from": "0:41:10", "to": "0:47:30"}
+  ]
+ },
+ {
+  "id": "where-north-star",
+  "type": "where",
+  "turns": ["Where was the North Star metric taught?"],
+  "classes": [26],
+  "evidence": [{"class": 26, "from": "1:10:00", "to": "1:18:00"}]
+ },
+ {
+  "id": "followup-second-one",
+  "type": "followup",
+  "turns": ["What are the stages of design thinking?", "explain the second one"],
+  "must": ["Explains the Define stage"]
+ }
+]
